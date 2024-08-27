@@ -1,0 +1,114 @@
+#Q1
+import sys
+
+print(f"The version of the Python is : ",sys.version)
+
+#Q2
+import keyword
+
+print("The list of the keyword is below :\n",keyword.kwlist)
+
+#Q3
+print("Enter your name :")
+x=str(input())
+print("Enter your age : ")
+y=int(input())
+z=100-y
+print("You will be of 100 years by the year", 2024+z)
+
+#Q4
+import math
+print("Enter the radius of the circle :")
+r=float(input())
+x=math.pi*r*r
+print("The area of the circle is ",x)
+
+#Q5
+print("Enter a number :")
+x=int(input())
+if x%2==0:
+  print(x," is an even number.")
+elif x%2!=0:
+  print(x," is a odd number.")
+
+#Q6
+if 0.1+0.2==0.3:
+  print("True")
+else:
+  print("False")
+
+from decimal import *
+getcontext().prec = 6
+print("\nCorrected:")
+
+if Decimal("0.2") + Decimal("0.1")==Decimal("0.3"):
+  print("True")
+else:
+  print("False")
+
+#Q7
+print("Enter the first string : ")
+x=str(input())
+print("Enter the second string : ")
+y=str(input())
+
+a=len(x)
+b=len(y)
+k=x[1]+x[0]
+
+k-k+xLi]
+i=2
+while i<a:
+  k=k+x[i]
+  i+=1
+
+k=k+" "+y[1]+y[0]
+j=2
+while j<b:
+  k-k+y[j]
+  j+=1
+
+print("The addition of the two string with first two letters swapped is : ",k)
+
+#Q8
+import keyword
+print("enter a string with combination of all :")
+x=str(input())
+
+l=keyword.kwlist
+if x in l:
+  print("It is not a valid identifier.")
+elif x.isidentifier():
+  print("It is a valid identifier.")
+else:
+  print("It is not a valid identifier.)
+
+#Q9
+print("Enter a string :")
+
+x=str(input())
+
+y=x[-1]
+
+for i in range(1,len(x)-1):
+  y=y+x[i]
+
+y=y+x[0]
+
+print("The new string with first and last swapped is : ",y)
+
+#Q10
+print("Enter anything:")
+x=str(input())
+
+y=x.lower()
+z=x.upper()
+
+print("In uppercase : ",z)
+print("In lowercase : ",y)
+
+
+
+
+
+
