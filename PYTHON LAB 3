@@ -16,15 +16,57 @@ for j in d:
   else:
     continue
 
-#Q2
-a=int(input("enter first number: ")) b=int(input("enter second number: "))
-def gcd(a,b): 11=[] 12=[] 13=[]
-for i in range(1,a+1): if a%i==0: 11.append(i)
-for i in range(1,b+1): if b%i==0:
-12.append(i)
-for i in 11:
-if i in 12:
-13.append(i)
-return max(13)
-def 1cm(g,a,b): return (a*b)/g
-g=gcd(a,b) 1=1cm(g,a,b) print("gcd of ",a," and ",b," is ",g) print("lcm of ",a," and ",b," is ",1)
+#Q3
+a=int(input("enter first number: ")) 
+b=int(input("enter second number: "))
+def gcd(a,b): 
+  l1=[] 
+  l2=[] 
+  l3=[]
+  for i in range(1,a+1): 
+    if a%i==0: 
+      l1.append(i)
+  for i in range(1,b+1): 
+    if b%i==0:
+      l2.append(i)
+  for i in 11:
+    if i in 12:
+      l3.append(i)
+  return max(l3)
+def lcm(g,a,b): 
+  return (a*b)/g
+g=gcd(a,b) 
+l=lcm(g,a,b) 
+print("gcd of ",a," and ",b," is ",g) 
+print("lcm of ",a," and ",b," is ",l)
+
+#Q4
+import math
+def ball_collide (x1,y1, r1, x2,y2, г2):   
+  x=math.sqrt(math.pow((x2-x1),2)+math.pow((y2-y1),2))
+  if x<=r1+r2:
+    return True
+  else:
+    return False
+x1=int(input("X coordinate of first ball: "))
+y1=int(input("Y coordinate of first ball: "))
+r1=int(input("radius of first ball: "))"
+x2=int(input("X coordinate of second ball: "))
+y2=int(input("Y coordinate of second ball: "))
+r2=int(input("radius of second ball: "))
+a=ball_collide(x1,y1, r1, x2,y2, г2)
+if a==True:
+  print("They will collide")
+else:
+  print("They will not collide")
+
+#Q5
+import statistics
+l=[1,2,5,6,52,1,36,47,41,1,6,51,5]
+l.sort()
+print("Mean is ", statistics.mean(l))
+print("Mode is ", statistics.mode(l))
+print("Median is ", statistics.median(l))
+
+
+
