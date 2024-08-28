@@ -1,0 +1,116 @@
+#Q1
+print("how many numbers : ")
+a=int(input())
+l=[ ]
+
+for i in range(0,a):
+    b=int(input("Enter number : "))
+    l.append(b)
+    
+def factorial(x):
+    c=1
+    for i in range(1,x+1):
+        c*=i
+    return c
+    
+for j in range(0,a):
+    f=factorial(l[j])
+    if j==a-1:
+        print(f,end=" ")
+    else:
+        print(f,",",end=" ")
+
+
+#Q2
+l=input("enter values : ")
+
+a=l.split(",")
+t=tuple(a)
+print("list is ",a,"\n")
+print("tuple is ",t,"\n")
+
+#Q3
+import math
+d=input("Enter value for D : ")
+x=d.split(',')
+C=50
+H=30
+for i in x:
+    D=int(i)
+    Q=math.sqrt((2*C*D)/H)
+    print(math.floor(Q),sep=', ',end=" ")
+
+#Q4
+a=input("enter :")
+x=a.split(",")
+x.sort()
+
+for i in range(0,len(x)):
+    if i==len(x)-1:
+        print(x[i],end=" ")
+    else: 
+        print(x[i],",",end=" ")
+
+#Q5
+a=input("Enter  4 binary numbers :")
+x=a.split(',')
+for i in x:
+    b=i[::-1]
+    f=0
+    for j in range(0,len(b)):
+        if b[j]=='1':
+            f+=2**j
+    if f%5==0:
+        print(i)
+    
+
+#Q6
+test_list=[[5,6],[4,7,10,17]]
+t=( )
+l=[ ]
+for i in test_list:
+    for j in i:
+        t=(j,)
+        l.append(t)
+        
+print(l)        
+
+#Q7
+T=[("Tom",19,80),("John",20,90),("Jony",17,91),("Jony",17,93),("Json",21,85)]
+A=sorted(T, key=lambda x:(x[0],x[1],x[2]))
+print(A)
+            
+#Q8
+import math
+l=[]
+for i in range(0,4):
+	ele=[input(),int(input())]
+	l.append(ele)
+x=0
+y=0
+for i in range(0,4):
+	if i==0:
+		x=x+l[0][1]
+	elif i==1:
+		x=x-l[1][1]
+	elif i==2:
+		y=y+l[2][1]
+	else :
+		y=y-l[3][1]
+ans=math.sqrt(x*2+y*2)
+print(round(ans))
+
+
+#Q9
+a=input("enter the string : ")
+d={ }
+x=a.split(' ')
+x.sort()
+
+for i in x:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+
+print(d)
