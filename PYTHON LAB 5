@@ -1,0 +1,74 @@
+#Q1
+store1_sales = [101, 102, 103, 104, 105]
+store2_sales = [103, 104, 106, 107, 108]
+
+X=set(store1_sales).intersection(set(store2_sales))
+Y=set(store1_sales).union(set(store2_sales))
+print(Y-X)
+
+
+#Q2
+facebook_friends = {"Alice", "Bob", "Charlie"}
+twitter_friends = {"Bob", "Charlie", "David"}
+linkedin_friends = {"Bob", "Charlie", "Emma"}
+
+
+A=facebook_friends.intersection(twitter_friends)
+B=A.intersection(linkedin_friends)
+
+print("Mutual friends are ",B)
+
+#Q3
+l={10,11,12,14,17,18,19,21}
+a=list(l)
+s=[ ]
+for i in range(a[0],a[-1]+1):
+    s.append(i)
+
+print(set(s).difference(l))    
+
+#Q4
+l=["john.doe@email.com","jane.smith@mail.com","info@corporateinc.co","support@techsolutions.com","hr@globalenterprises.org","mary.johnson@consultingfirm.net","david.lee@designstudio.co","david.lee@designstudio.co","jane.smith@mail.com","support@techsolutions.com"]
+
+print("Original : ",l)
+print("After removing duplicates",set(l))
+
+#Q5
+a1={1,2,3,4,5,6,7,8,9}
+a2={1,2}
+a3={1,2,50,10,11,12,15}
+a4={50,58,6}
+a5={50}
+a6={7,8,9}
+
+l=[a1,a2,a3,a4,a5,a6]
+
+for i in l:
+    for j in l:
+        if i!=j:
+            if i<=j:
+                print(i," is subset of ",j)
+
+
+#Q6
+a="The sun rises in the east, bringing warmth and light to the day."
+b="She enjoys reading books, especially mystery novels that keep her guessing."
+c="He traveled across the country by train, admiring the changing landscapes."
+
+l=[a.split(),b.split(),c.split()]
+
+for i in l:
+    x=set(i)
+    for j in l:
+        if i!=j:
+            x-=(set(i).intersection(set(j)))
+    print(x)
+
+
+#Q7
+a=["Laptop","Smartphone","Tablet","Headphones","Smartwatch"]
+
+b=["Desktop","Computer","Smartphone","Printer","Headphones","Camera"]
+
+print("Products common in both the warehouses are ",set(a).intersection(set(b)))
+
