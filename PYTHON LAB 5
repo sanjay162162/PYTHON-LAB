@@ -72,3 +72,48 @@ b=["Desktop","Computer","Smartphone","Printer","Headphones","Camera"]
 
 print("Products common in both the warehouses are ",set(a).intersection(set(b)))
 
+#Q8
+def reachable_nodes(graph, start):
+    visited = set()
+    def dfs(node):
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                dfs(neighbor)
+    dfs(start)
+    return visited
+graph = { 'A': {'B', 'C'}, 'B': {'D'}, 'C': {'D'}, 'D': {'E'}, 'E': set()}
+snode = "A"
+print(reachable_nodes(graph,snode))
+
+#Q9
+def has_cycle(graph):
+    state = {}
+    def dfs(node):
+        if node in state:
+            return state[node] == 1 
+        state[node] = 1 
+        if any(dfs(neighbor) for neighbor in
+graph[node]):
+            return True
+        state[node] = 2 
+        return False
+    return any(dfs(node) for node in graph if node not
+in state)
+
+graph = { 'A': {'B'}, 'B': {'C'},
+'C': {'A'},
+'D': {'E'}, 'E': set() }
+if has_cycle(graph) :
+    print("Cycle is present") 
+else : print("Cycle is not present")
+
+#Q10
+from itertools import chain, combinations
+
+def power_set(s):
+    return list(chain.from_iterable(combinations(s, r)
+for r in range(len(s)+1)))
+s = {1, 2, 3}
+result = power_set(s)
+print([set(subset) for subset in result])
