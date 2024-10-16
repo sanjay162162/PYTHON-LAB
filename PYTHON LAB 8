@@ -1,0 +1,93 @@
+#1
+import math
+class circle:
+    def __init__(self,radius):
+        self.r=radius
+    def area(self):
+        return math.pi*self.r*self.r
+        
+c=circle(5)
+a=c.area()
+print("Area of circle is",a)
+
+#2
+class rectangle:
+    def __init__(self,length,width):
+        self.l=length
+        self.w=width
+    def area(self):
+        return self.l*self.w
+r=rectangle(10,20)
+a=r.area()
+print("Area of rectangle is",a)
+
+#3
+class c:
+    def __init__(self,number):
+        self.n=number
+    def gen(self):
+        for i in range(0,self.n):
+            if i%7==0:
+                yield i
+a=c(100)
+p=a.gen()
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
+
+#4
+class Shape:
+    def __init__(self):
+        pass
+    def area(self,a=0):
+        return a
+class Square(Shape):
+    def __init__(self,length):
+        self.l=length
+    def area(self,a=0):
+        return self.l*self.l
+
+s=Shape()
+s1=Square(10)
+print("area by super class",s.area())
+print("area by sub class",s1.area())
+
+#5
+class string:
+    def __init__(self):
+        pass
+    def getstring(self):
+        self.a=str(input("Enter the string : "))
+    def printstring(self):
+        print("the string is",self.a)
+        
+s=string()
+s.getstring()
+s.printstring()
+
+#6
+class person:
+    def __init__(self):
+        pass
+    
+class male(person):
+    def __init__(self):
+        pass
+    def getgender(self):
+        print("Male")
+    
+class female(person):
+    def __init__(self):
+        pass
+    def getgender(self):
+        print("Female")
+        
+p=person()
+m=male()
+f=female()
+m.getgender()
+f.getgender()
