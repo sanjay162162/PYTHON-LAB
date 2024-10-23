@@ -1,0 +1,233 @@
+#1
+class A:
+    def action(self):
+        print("Action from class A")
+
+class B(A):
+    def action(self):
+        super().action()
+        print("Action from class B")
+        
+
+class C(A):
+    def action(self):
+        super().action()
+        print("Action from class C")
+        
+        
+class D(B,C):
+    def action(self):
+        super().action()
+        print("Action from class D")
+        
+        
+print(D.mro())
+
+
+d = D()
+d.action()
+
+#2
+class A:
+    def action(self):
+        print("Action from class A")
+
+class E(A):
+    def action(self):
+        super().action()
+        print("Action from class E")
+        
+class B(A):
+    def action(self):
+        super().action()
+        print("Action from class B")
+        
+
+class C(A):
+    def action(self):
+        super().action()
+        print("Action from class C")
+        
+        
+class D(B,C,E):
+    def action(self):
+        super().action()
+        print("Action from class D")
+        
+        
+print(D.mro())
+
+
+d = D()
+d.action()
+
+
+#3class Person:
+    def __init__(self, n, **kwargs):
+        self.n = n
+        super().__init__(**kwargs)
+
+class Employee(Person):
+    def __init__(self, n, salary, **kwargs):
+        self.salary = salary
+        super().__init__(n=n, **kwargs)
+
+class Manager(Person):
+    def __init__(self, n, department, **kwargs):
+        self.department = department
+        super().__init__(n=n, **kwargs)
+
+class Director(Employee, Manager):
+    def __init__(self, n, salary, department):
+        super().__init__(n=n, salary=salary, department=department)
+
+d = Director('ABC', 10000, 'IT')
+print(f"{d.n} works in {d.department} and has a salary of {d.salary}")
+
+#4
+class Base1:
+    def process(self):
+        print("From Base1")
+class Base2:
+    def process(self):
+        print("From Base2")
+class Base3:
+    def process(self):
+        print("From Base3")
+class Derived(Base1, Base2, Base3):
+    def process(self):
+        super().process()
+d = Derived()
+d.process()
+
+Derived.__bases__ = (Base2, Base1, Base3)
+d = Derived()
+
+d.process()
+Derived.__bases__ = (Base3, Base2, Base1)
+
+d = Derived()
+d.process()
+
+#5
+class X:
+    def greet(self):
+        print("Hello from X")
+
+class Y:
+    def greet(self):
+        print("Hello from Y")
+
+class Z(X, Y):
+    def greet(self):
+        super().greet()
+
+print(Z.mro())
+z = Z()
+z.greet()
+
+
+#6
+class Base1:
+    def __init__(self):
+        self.data = "Base1"
+    def info(self):
+        print("Info from Base1")
+
+class Base2:
+    def __init__(self):
+        self.data = "Base2"
+    def info(self):
+        print("Info from Base2")
+
+class Base3:
+    def __init__(self):
+        self.data = "Base3"
+    def info(self):
+        print("Info from Base3")
+
+class Combined(Base1, Base2, Base3):
+    def __init__(self):
+        super().__init__()
+    def info(self):
+        super().info()
+print(Combined.mro())
+c = Combined()
+print(c.data)
+c.info()
+
+
+#7
+class Person:
+    def __init__(self,n,**kwargs):
+        self.n = n
+        super().__init__(**kwargs)
+class Employee(Person):
+    def __init__(self,n,salary,**kwargs):
+        self.salary=salary
+        super().__init__(n=n,**kwargs)
+class Manager(Person):
+    def __init__(self,n,department,**kwargs):
+        self.department=department
+        super().__init__(n=n,**kwargs)
+class Director(Employee,Manager):
+    def __init__(self, n, salary, department):
+        super().__init__(n=n, salary=salary, department=department)
+d = Director('ABC',10000,'IT')
+print(f"{d.n} works in {d.department} and has a salary of {d.salary} ")
+
+#8
+class Employee:
+    def __init__(self, name, age, salary):
+        self.name = name
+        self.age = age
+        self.__salary = salary
+
+    def get_salary(self):
+        return self.__salary
+
+    def set_salary(self, new_salary):
+        if new_salary < 0:
+            print("Error: Salary cannot be negative.")
+        else:
+            self.__salary = new_salary
+            print(f"Salary updated to: {self.__salary}")
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}, Salary: {self.__salary}")
+
+employee = Employee("Alice", 12, 25000)
+print("Current Salary:", employee.get_salary())
+
+employee.set_salary(10000)
+employee.set_salary(-5000)
+employee.display()
+
+#9
+class Student:
+    def __init__(self, name, roll_no, marks):
+        self.name = name
+        self.roll_no = roll_no
+        self.__marks = None
+        self.set_marks(marks) 
+
+    def get_marks(self):
+        return self.__marks
+
+    def set_marks(self, marks):
+        if 0 <= marks <= 100:
+            self.__marks = marks
+            print(f"Marks set to: {self.__marks}")
+        else:
+            print("Error: Marks should be between 0 and 100.")
+
+    def display(self):
+        print(f"Name: {self.name}, Roll Number: {self.roll_no}, Marks: {self.__marks}")
+
+student = Student("UWU", 120, 5)
+print("Current Marks:", student.get_marks())
+
+student.set_marks(92)
+student.set_marks(15)
+student.display()       
+
